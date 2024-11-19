@@ -9,10 +9,9 @@ interface ContextMovies {
   nowPlaying: ResultMovie | null;
 };
 
-
 export const AppContext = createContext<ContextMovies | undefined>(undefined);
 
-export const ContextProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
+export const ContextProvider: React.FC<{ children: ReactNode }> = ({children}) => {
   const [moviesLoaded, setMoviesLoaded] = useState<ResultMovie[]>([]);
   const [nowPlaying, setNowPlaying] = useState<ResultMovie | null>(null);
 
