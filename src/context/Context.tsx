@@ -2,7 +2,7 @@ import React, { createContext, useContext, useState, ReactNode, useEffect } from
 import ResultMovie from "../config/entities/ResultMovie";
 import { FilmAdapter } from "../adapter/FilmAdapter";
 
-type ContextMovie = {
+interface ContextMovies {
   moviesLoaded: ResultMovie[]; 
   setMoviesLoaded: (movies: ResultMovie[]) => void; 
   setNowPlaying: (movies : ResultMovie) => void;
@@ -10,13 +10,13 @@ type ContextMovie = {
 };
 
 
-export const AppContext = createContext<ContextMovie | undefined>(undefined);
+export const AppContext = createContext<ContextMovies | undefined>(undefined);
 
 export const ContextProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [moviesLoaded, setMoviesLoaded] = useState<ResultMovie[]>([]);
   const [nowPlaying, setNowPlaying] = useState<ResultMovie | null>(null);
 
-  const contextValue: ContextMovie = {
+  const contextValue: ContextMovies = {
     moviesLoaded,
     setMoviesLoaded,
     setNowPlaying,
