@@ -7,7 +7,7 @@ interface ContextMovies {
   mandanga:string
 };
 
-export const AppContextSimple = createContext<ContextMovies | undefined>(undefined);
+export const ContextoMandanga = createContext<ContextMovies | undefined>(undefined);
 
 export const ContextProvider: React.FC<{ children: ReactNode }> = ({children}) => {
     //AQUÍ SE MANEJA LA LOGICA DE NEGOCIO 
@@ -16,9 +16,9 @@ export const ContextProvider: React.FC<{ children: ReactNode }> = ({children}) =
         mandanga : "ESTE ES EL VALOR DE LA MANDANGA"
     }
   return(
-    <AppContextSimple.Provider value={valor}>
+    <ContextoMandanga.Provider value={valor}>
       {children}
-    </AppContextSimple.Provider>
+    </ContextoMandanga.Provider>
   );
 
 };
